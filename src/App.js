@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+//const { Component } = require("react");
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react'
+
+
+class Contador extends Component{
+
+  state = {
+    video: {
+      title: "Super Video",
+      likes: 0
+    }
+  }
+
+  add = () => {
+    // SETSTATE ES ASINCRONO
+    this.setState((state) => ({ 
+      video: {
+        ...state.video,
+        likes: state.video.likes + 1
+      }
+     }))
+  }
+
+  render(){
+    return(
+      <div>
+        <h1>
+          { this.state.video.title }
+        </h1>
+        <button onClick={ this.add }>
+        Likes: ({ this.state.video.likes })
+      </button>
+      </div>
+      
+    )
+  }
 }
 
-export default App;
+const App = () => (
+  <div>
+    <Contador />
+  </div>
+)
+
+export default App
