@@ -1,26 +1,40 @@
 
 import React, { Component } from 'react'
 
+const Title = (props) => {
 
-class App extends Component {
+  const styles = {
+    padding: "0.3em",
+    color: "#FFF",
+    background: props.uiColor,
+    borderRadius: "0.3em",
+    textAlign: "center",
+    fontSize: "50px"
+  }
+
+  console.log(props.children)
+
+  return(
+    <h1 style={ styles }>
+      { props.children }
+    </h1>
+  )
+}
+
+class App extends React.Component {
 
   state = {
-    marcado: `
-      <h1>Inyectando HTML con React</h1>
-      <br />
-      <hr />
-      <a href="#">Algun Link</a>
-    `
+    uiColor: 'purple'
   }
 
   render(){
     return(
       <div>
-        <div 
-          dangerouslySetInnerHTML={ {
-            __html: this.state.marcado
-          } }
-        ></div>
+        <Title 
+          uiColor={ this.state.uiColor }
+        >
+          Súper <em>Ninja</em>
+        </Title>
       </div>
     )
   }
