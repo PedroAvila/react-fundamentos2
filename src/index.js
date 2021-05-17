@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import './destructuracion.js'
 import reportWebVitals from './reportWebVitals';
-//export { default } from '.';
+
 
 ReactDOM.render(
   <React.StrictMode>
