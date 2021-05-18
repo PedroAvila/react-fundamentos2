@@ -1,40 +1,29 @@
 
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
-const Title = (props) => {
+const Computacion = () => (
+  <>
+    <li>Monitor</li>
+    <li>Mouse</li>
+    <li>Teclado</li>
+  </>
+)
 
-  const styles = {
-    padding: "0.3em",
-    color: "#FFF",
-    background: props.uiColor,
-    borderRadius: "0.3em",
-    textAlign: "center",
-    fontSize: "50px"
-  }
+const Ropa = () => (
+  <>
+    <li>Playera</li>
+    <li>Jeans</li>
+    <li>Shorts</li>
+  </>
+)
 
-  console.log(props.children)
-
-  return(
-    <h1 style={ styles }>
-      { props.children }
-    </h1>
-  )
-}
-
-class App extends React.Component {
-
-  state = {
-    uiColor: 'purple'
-  }
+class App extends Component {
 
   render(){
     return(
       <div>
-        <Title 
-          uiColor={ this.state.uiColor }
-        >
-          Súper <em>Ninja</em>
-        </Title>
+        <Computacion />
+        <Ropa />
       </div>
     )
   }
