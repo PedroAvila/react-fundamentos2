@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+const noop = () => {}
+
 class Profile extends Component {
 
   static propTypes = {
@@ -9,6 +11,15 @@ class Profile extends Component {
     bio: PropTypes.string,
     email: PropTypes.string,
     age: PropTypes.number
+  }
+
+  static defaultProps = {
+    name: "Ninja PRO",
+    onHello: noop
+  }
+
+  saluda = () => {
+    this.props.onHello()
   }
 
   render(){
@@ -24,11 +35,15 @@ class Profile extends Component {
         <a href={`mailto:${ email }`}>
           { email }
         </a>
+        <button onClick={ this.saluda }>
+          Saluda
+        </button>
       </div>
     )
   }
 }
 
+Profile.defaultProps = { }
 
 class App extends Component {
 
@@ -36,7 +51,6 @@ class App extends Component {
     return(
       <div>
         <Profile
-          name="Gerardo Gallegos"
           bio="Soy un desarrollador FullStack"
           email="my-email@mail.com"
         />
